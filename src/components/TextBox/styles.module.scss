@@ -1,0 +1,17 @@
+.textBox {
+	width: 100%;
+	background: #ffffff;
+	border: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 6px 10px 7px 10px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	color: #8a8f9c;
+
+	&:focus {
+		outline: none;
+	}
+}

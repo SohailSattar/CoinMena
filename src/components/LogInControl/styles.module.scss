@@ -1,0 +1,21 @@
+.loginControl {
+	.loggedInUser {
+		color: red;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 600;
+		// font-size: 13px;
+	}
+}
+
+.modal {
+	z-index: 0;
+	top: 35%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	margin-right: -50%;
+	width: 60%;
+	// height: 50px;
+	z-index: 1000;
+}

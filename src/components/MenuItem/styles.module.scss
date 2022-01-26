@@ -1,0 +1,29 @@
+.menuItem {
+	display: inline;
+
+	.item {
+		align-items: center;
+		flex-direction: row;
+		font-size: 14px;
+		font-weight: 400;
+		font-style: normal;
+		padding: 10px 0;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+
+		color: #000000;
+		// font-size: 1em;
+		// width: -webkit-max-content;
+		// width: -moz-max-content;
+		// width: max-content;
+		// line-height: 1.125em;
+		// margin-left: 2em;
+		// transition: all 0.2s ease;
+
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+
+		text-decoration: none;
+		background-color: transparent;
+	}
+}
