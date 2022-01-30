@@ -1,117 +1,86 @@
 import React from "react";
-import { FC, Key, useMemo } from "react";
-import { useTable } from "react-table";
+import { FC, useMemo } from "react";
+import { useSortBy, useTable } from "react-table";
 
 import styles from "./styles.module.scss";
 
-// interface Row{
-
-// }
+export interface TableColumn {
+	Header: string;
+	accessor: string;
+}
 
 interface Props {
 	title?: string;
+	columnsList: TableColumn[];
 	// columns: string[];
-	// rows: any;
+	rowList: any[];
 }
 
-const Table: FC<Props> = ({ title }) => {
-	const data = React.useMemo(
-		() => [
-			{
-				col1: "Hello",
+const Table: FC<Props> = ({ title, columnsList, rowList }) => {
+	const data = useMemo(
+		() => [...rowList],
 
-				col2: "World",
-			},
-
-			{
-				col1: "react-table",
-
-				col2: "rocks",
-			},
-
-			{
-				col1: "whatever",
-
-				col2: "you want",
-			},
-		],
-
-		[]
+		[rowList]
 	);
 
-	const columns: any = React.useMemo(
-		() => [
-			{
-				Header: "Column 1",
+	const columns: any = useMemo(
+		() => [...columnsList],
 
-				accessor: "col1", // accessor is the "key" in the data
-			},
-
-			{
-				Header: "Column 2",
-
-				accessor: "col2",
-			},
-		],
-
-		[]
+		[columnsList]
 	);
 
 	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-		useTable({ columns, data });
+		useTable(
+			{
+				columns: columns,
+				data: data,
+			},
+			useSortBy
+		);
 
 	return (
-		<table {...getTableProps()} style={{ border: "solid 1px blue" }}>
-			<thead>
-				{headerGroups.map((headerGroup) => (
-					<tr {...headerGroup.getHeaderGroupProps()}>
-						{headerGroup.headers.map((column) => (
-							<th
-								{...column.getHeaderProps()}
-								style={{
-									borderBottom: "solid 3px red",
-
-									background: "aliceblue",
-
-									color: "black",
-
-									fontWeight: "bold",
-								}}
-							>
-								{column.render("Header")}
-							</th>
-						))}
-					</tr>
-				))}
-			</thead>
-
-			<tbody {...getTableBodyProps()}>
-				{rows.map((row) => {
-					prepareRow(row);
-
-					return (
-						<tr {...row.getRowProps()}>
-							{row.cells.map((cell) => {
+		<div>
+			<table
+				{...getTableProps()}
+				className={styles.table}
+				style={{ borderRadius: "5px", overflow: "hidden" }}
+			>
+				<thead className={styles.column}>
+					{headerGroups.map((headerGroup) => (
+						<tr {...headerGroup.getHeaderGroupProps()}>
+							{headerGroup.headers.map((column) => {
 								return (
-									<td
-										{...cell.getCellProps()}
-										style={{
-											padding: "10px",
-
-											border: "solid 1px gray",
-
-											background: "papayawhip",
-										}}
+									<th
+										{...column.getHeaderProps(column.getSortByToggleProps())}
+										className={styles.columnHeader}
 									>
-										{cell.render("Cell")}
-									</td>
+										{column.render("Header")}
+									</th>
 								);
 							})}
 						</tr>
-					);
-				})}
-			</tbody>
-		</table>
+					))}
+				</thead>
+
+				<tbody {...getTableBodyProps()}>
+					{rows.map((row) => {
+						prepareRow(row);
+
+						return (
+							<tr {...row.getRowProps()} className={styles.row}>
+								{row.cells.map((cell) => {
+									return (
+										<td {...cell.getCellProps()} className={styles.rowItem}>
+											{cell.render("Cell")}
+										</td>
+									);
+								})}
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
 	);
 };
 

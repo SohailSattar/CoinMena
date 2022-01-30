@@ -1,0 +1,44 @@
+.converter {
+	display: flex;
+	flex-direction: column;
+	background-color: #dfe6ec;
+	border-radius: 15px;
+	padding: 15px;
+
+	.container {
+		flex-direction: column;
+		display: flex;
+		border-radius: 15px;
+	}
+
+	.swapped {
+		flex-direction: column-reverse;
+		display: flex;
+	}
+
+	.panel {
+		background-color: white;
+		display: flex;
+		align-items: center;
+		margin: 15px 0;
+		height: 50px;
+
+		.textBox {
+			margin-right: 5px;
+		}
+
+		.fiat {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: right;
+			padding-right: 15px;
+			font-size: 18px;
+			font-weight: 600;
+		}
+	}
+
+	.button {
+		width: 100%;
+	}
+}

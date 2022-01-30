@@ -9,11 +9,24 @@ export default {
 
 export const Text = () => (
 	<Table
-	// columns={["A", "B", "C"]}
-	// rows={[
-	// 	["1", "2", "3"],
-	// 	["4", "5", "6"],
-	// 	["7", "8", "9"],
-	// ]}
+		columnsList={[
+			{
+				Header: "A",
+				accessor: "colA",
+			},
+			{
+				Header: "B",
+				accessor: "colB",
+			},
+			{
+				Header: "C",
+				accessor: "col C",
+			},
+			{
+				Header: "D",
+				accessor: "colD",
+			},
+		]}
+		rowList={[]}
 	/>
 );

@@ -1,8 +1,17 @@
+export { default as ActionItem } from "./ActionItem";
 export { default as Button } from "./Button";
+export { default as ButtonWithDropdown } from "./ButtonWithDropdown";
+export { default as CryptoAssetsList } from "./CryptoAssetsList";
+export { default as CurrencyConverter } from "./CurrencyConverter";
+export { default as CurrencyItem } from "./CurrencyItem";
+export { default as Dropdown } from "./Dropdown";
+export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as Layout } from "./Layout";
 export { default as LoginControl } from "./LogInControl";
 export { default as LoginForm } from "./LoginForm";
 export { default as MenuBar } from "./MenuBar";
 export { default as MenuItem } from "./MenuItem";
+export { default as Modal } from "./Modal";
+export { default as Table } from "./Table";
 export { default as TextBox } from "./TextBox";

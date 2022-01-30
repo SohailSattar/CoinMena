@@ -1,6 +1,6 @@
 const menuItems = [
-	{ name: "Home", path: "/" },
-	{ name: "Trade", path: "/trade" },
+	{ name: "Home", path: "/", isPublic: true },
+	{ name: "Trade", path: "/trade", isPublic: false },
 ];
 
 export default menuItems;

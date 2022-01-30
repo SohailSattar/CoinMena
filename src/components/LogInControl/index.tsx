@@ -1,46 +1,56 @@
 import { useState } from "react";
-import Modal from "react-modal";
-import { Button } from "..";
+import { useNavigate } from "react-router-dom";
+import { Button, Modal } from "..";
+import { useStore } from "../../utils/store";
 import LoginForm from "../LoginForm";
 
 import styles from "./styles.module.scss";
 
 const LoginControl = () => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const navigate = useNavigate();
 
-	const [modalOpen, setModalOpen] = useState(false);
+	const isLoggedIn = useStore((state) => state.loggedIn);
+	const setUserLoggedIn = useStore((state) => state.setUserLoggedIn);
 
-	//Modal
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const modalCloseHandler = () => {
-		setModalOpen(false);
+		setIsModalOpen(false);
 	};
 
 	const loginButtonClickHandler = () => {
-		// alert("I am going to log in");
-		setModalOpen(true);
+		setIsModalOpen(true);
 	};
 
-	const onLoginHandler = () => {
-		setModalOpen(false);
-		setIsLoggedIn(true);
+	const loginHandler = () => {
+		setIsModalOpen(false);
+		setUserLoggedIn(true);
+	};
+
+	const logoutHandler = () => {
+		setUserLoggedIn(false);
+		navigate("/");
 	};
 
 	return (
 		<div className={styles.loginControl}>
 			{isLoggedIn ? (
-				<span className={styles.loggedInUser}>Sohail Abdul Sattar</span>
+				<div className={styles.loggedInUserContainer}>
+					<span className={styles.loggedInUser}>Sohail Abdul Sattar</span>
+					<div>
+						<Button onClick={logoutHandler}>Logout</Button>
+					</div>
+				</div>
 			) : (
 				<Button onClick={loginButtonClickHandler}>Login</Button>
 			)}
 			<Modal
-				isOpen={modalOpen}
-				// onAfterOpen={afterOpenModal}
-				onRequestClose={modalCloseHandler}
-				// style={customStyles}
-				portalClassName={styles.modal}
-				ariaHideApp={false}
+				title="Log in"
+				isOpen={isModalOpen}
+				className={styles.modal}
+				onClose={modalCloseHandler}
 			>
-				<LoginForm onLogin={onLoginHandler} />
+				<LoginForm onLogin={loginHandler} />
 			</Modal>
 		</div>
 	);

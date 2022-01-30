@@ -1,3 +1,30 @@
 .table {
 	width: 100%;
+	background: white;
+
+	.column {
+		text-align: left;
+		background-color: #dfe6ec;
+		color: #6b8aa8;
+		font-weight: 400;
+		padding-left: 15px;
+		height: 80px;
+		font-size: 18px;
+		border-spacing: 0;
+
+		.columnHeader {
+			padding-left: 25px;
+		}
+	}
+
+	.row {
+		font-size: 16px;
+		font-weight: 600;
+
+		.rowItem {
+			padding-left: 25px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #b0aec9;
+		}
+	}
 }

@@ -14,9 +14,8 @@ const Header: FC<Props> = ({ title, menuItems }) => {
 		<header className={styles.header}>
 			<div className={styles.headerInner}>
 				<div className={styles.container}>
-					<Link to={"/"}>
-						CoinMena
-						{/* <img src={Logo} className={styles.logo} alt="Medulla Logo" /> */}
+					<Link to={"/"} className={styles.logoText}>
+						{title}
 					</Link>
 
 					<div className={styles.mainMenu}>

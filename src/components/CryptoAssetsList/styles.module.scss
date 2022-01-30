@@ -1,0 +1,18 @@
+.assetList {
+	.rowItem {
+		display: flex;
+		align-items: center;
+		margin-top: 15px;
+	}
+
+	.assetIcon {
+		height: 30px;
+		width: 30px;
+		margin-right: 10px;
+	}
+
+	.assetSymbol {
+		margin-left: 10px;
+		color: gray;
+	}
+}
