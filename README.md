@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# COINMENA Sample Trading App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repo contains the frontend which is built in React. Please find below the structural and functional details of the project.
 
-## Available Scripts
+## Technologies Used ##
+React as Frontend
 
-In the project directory, you can run:
+Storybook
 
-### `yarn start`
+TypeScript as the programming language.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Components
+These components are added in the proejc tto accomodate the user interface.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Action Item
+Simple card like element which contains the name of the action and the action placeholder to take. Currenly being used with the ButtonWithDropdown component.
 
-### `yarn build`
+### Button
+HTML button element which is wrapped as a component. This was created for styling purpose.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ButtonWithDropdown
+Button element which on mouse hover will display the list of action items to be performed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Crypto Assets List
+It is a simple component which recieves the assets lists and display it in the tabular form.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Currency Converter
+Currency Component is a stateful component which is exchanges the currencies. It was intentionally made as a stand alone component.
 
-### `yarn eject`
+### Currency item
+It is a basic card like component which displays the asset with its name, symbol and icon.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Dropdown
+This component wraps a thrid party component. Made it to display the React component in the dropdown menu.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Footer
+Footer of the page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Header
+Header menu consists of the Logo (for time being it is a simple text), menu items and a login button. If the user is signed in, they shall see their name and the log in button.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Layout
+Main wrapper which consists of the Header, Footer and the page content. As our page structure will be same throughout the website, this layout would be helpful.
 
-## Learn More
+### Login Control
+Initially contains a single button called "Login". Upon clicking on the Login button, a modal popup will Login form will appear where the user can enter the email and password (Currently there is no backend authentication). After entering the login details, this component will display the user name with logout button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Login Form
+Login form consists of two textoxes i.e. Email andd Password and a Login button.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Menu Bar
+Holds the list of Menu Items.
+
+### Menu Item
+Inidividual menu item which displays the name and the url path.
+
+### Modal
+Modal popup which is built on top of the headless UI.
+
+### Table
+Wrapper muilt on top of the react-model
+
+### TextBox
+TextBox component which is built on HTML input element. Currently allowed input types are text, password and number.
+
+## Pages
+Currently at this stage this project has 2 pages. Home and Trade.
+
+### Home
+Home page contains the list of the current prices of the assets.
+
+### Trade
+Trade page contains a single component i.e. Currency Converter.
+
