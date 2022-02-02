@@ -50,7 +50,7 @@ const CryptoAssetsList: FC<Props> = ({ assets }) => {
 
 	return (
 		<div className={styles.assetList}>
-			<Button onClick={() => {}}>Load More</Button>
+			<div className={styles.container}><Button onClick={() => {}}>Load More</Button></div>
 			<Table columnsList={columns} rowList={rows} />
 		</div>
 	);

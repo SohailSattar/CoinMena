@@ -1,4 +1,12 @@
 .assetList {
+.container{
+	margin: 15px 0;
+	width: 100%;
+	justify-content: right;
+	display: flex;
+}
+
+
 	.rowItem {
 		display: flex;
 		align-items: center;

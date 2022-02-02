@@ -106,6 +106,7 @@ const CurrencyConverter: FC<Props> = ({ assetsList }) => {
 		setCurrencyFrom({
 			...currencyFrom,
 			amount: parseFloat(event.target.value),
+			name:selectedCurrency.value.toString()
 		});
 
 		if (!isSwapped) {
